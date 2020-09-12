@@ -1,0 +1,11 @@
+*) Tham chiếu không phải đối tượng
+Ta thao tác với đối tượng thông qua tham chiếu.
+
+Kiến thức đã học: 
++ Lớp 
++ Đối tượng
++ Trạng thái, hành vi
++ Biến thể hiện và biến phương thức
++ Đóng gói, che dấu
++ Phương thức khởi tạo
++ Overloading

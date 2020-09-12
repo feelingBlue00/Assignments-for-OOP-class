@@ -1,0 +1,1 @@
+Khi viết là các lớp tương tác, khi chạy là các đối tượng tương tác.
