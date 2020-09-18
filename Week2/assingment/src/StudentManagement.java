@@ -33,6 +33,9 @@ public class StudentManagement {
                 }
             }
         }
+        if (index == 0) {
+            return null;
+        }
         return result;
     }
 
@@ -50,12 +53,6 @@ public class StudentManagement {
                 index--;
                 break;
             }
-        }
-    }
-
-    public void display(Student[] students) {
-        for (int i = 0; i < index; i++) {
-            System.out.println(students[i].getInfo());
         }
     }
 }
