@@ -11,7 +11,7 @@ public class main {
         students[3] = new Student("TA", "17020114", "K32CCE", "vnu@mail.com");
         students[4] = new Student("TD", "17020115", "K32CCG", "vnu@mail.com");
         students[5] = new Student("TG", "17020116", "K32CCC", "vnu@mail.com");
-        StudentManagement studentManagement = new StudentManagement(students, students.length);
+        StudentManagement studentManagement = new StudentManagement();
         studentManagement.removeStudent("17020113");
         studentManagement.removeStudent("17020116");
         System.out.println(studentManagement.studentsByGroup());

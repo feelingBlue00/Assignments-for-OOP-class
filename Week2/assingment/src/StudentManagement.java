@@ -1,10 +1,10 @@
 public class StudentManagement {
-    private Student[] students = new Student[100];
+    private Student[] students;
     private int index = 0;
 
-    public StudentManagement(Student[] students, int index) {
-        this.students = students;
-        this.index = index;
+    public StudentManagement() {
+        this.students = new Student[100];
+        this.index = 0;
     }
 
     public static boolean sameGroup(Student s1, Student s2) {
@@ -54,5 +54,9 @@ public class StudentManagement {
                 break;
             }
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
