@@ -1,18 +1,13 @@
 public class Fraction {
     private int numerator;
-    private int denominator;
+    private int denominator = 1;
 
+    /**
+     * Constructor.
+     */
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
-        if (denominator == 0) {
-            this.denominator = 1;
-        }
-        this.denominator = denominator;
-    }
-
-    public Fraction() {
-        this.numerator = 0;
-        this.denominator = 1;
+        setDenominator(denominator);
     }
 
     public int getNumerator() {
@@ -27,27 +22,39 @@ public class Fraction {
         this.numerator = numerator;
     }
 
+    /**
+     * Set denominator.
+     * @param denominator throw
+     */
     public void setDenominator(int denominator) {
         if (denominator != 0) {
             this.denominator = denominator;
         }
     }
 
-    public static int gcd(int numerator, int denominator) {
-        if (numerator == 0 || denominator == 0) {
-            return numerator + denominator;
+    /**
+     * Calculate gcd of two integer.
+     * @param a throw
+     * @param b throw
+     */
+    public static int gcd(int a, int b) {
+        if (a == 0 || b == 0) {
+            return a + b;
         }
 
-        while (numerator != denominator) {
-            if (numerator > denominator) {
-                numerator = denominator - numerator;
+        while (a != b) {
+            if (a > b) {
+                a -= b;
             } else {
-                denominator = denominator - numerator;
+                b -= a;
             }
         }
-        return numerator;
+        return a;
     }
 
+    /**
+     * Calculate reduced fraction of two fraction.
+     */
     public Fraction reduce() {
         int gcd = gcd(this.numerator, this.denominator);
         this.numerator = this.numerator / gcd;
@@ -55,36 +62,61 @@ public class Fraction {
         return this;
     }
 
-    public Fraction add(Fraction fraction) {
-        this.numerator = this.numerator * fraction.denominator + this.denominator * fraction.numerator;
-        this.denominator = this.denominator * fraction.denominator;
-        return this;
+    /**
+     * Calculate sum of two fraction.
+     * @param f throw
+     * @return sum
+     */
+    public Fraction add(Fraction f) {
+        this.numerator = this.numerator * f.denominator + this.denominator * f.numerator;
+        this.denominator = this.denominator * f.denominator;
+        return this.reduce();
     }
 
-    public Fraction subtract(Fraction fraction) {
-        this.numerator = this.numerator * fraction.denominator - this.denominator * fraction.numerator;
-        this.denominator = this.denominator * fraction.denominator;
-        return this;
+    /**
+     * Calculate subtraction of two fraction.
+     * @param f throw
+     * @return subtraction
+     */
+    public Fraction subtract(Fraction f) {
+        this.numerator = this.numerator * f.denominator - this.denominator * f.numerator;
+        this.denominator = this.denominator * f.denominator;
+        return this.reduce();
     }
 
-    public Fraction multiply(Fraction fraction) {
-        this.numerator = this.numerator * fraction.numerator;
-        this.denominator = this.denominator * fraction.denominator;
-        return this;
+    /**
+     * Calculate multiplication of two fraction.
+     * @param f throw
+     * @return multiply
+     */
+    public Fraction multiply(Fraction f) {
+        this.numerator = this.numerator * f.numerator;
+        this.denominator = this.denominator * f.denominator;
+        return this.reduce();
     }
 
-    public Fraction divide(Fraction fraction) {
-        if (fraction.numerator != 0) {
-            this.numerator = this.numerator * fraction.denominator;
-            this.denominator = this.denominator * fraction.numerator;
+    /**
+     * Calculate division of two fraction.
+     * @param f throw
+     * @return division
+     */
+    public Fraction divide(Fraction f) {
+        if (f.numerator != 0) {
+            this.numerator = this.numerator * f.denominator;
+            this.denominator = this.denominator * f.numerator;
         }
-        return this;
+        return this.reduce();
     }
 
+    /**
+     * Check if two fraction were equal.
+     * @param obj throw
+     * @return true or false
+     */
     public boolean equals(Object obj) {
         if (obj instanceof Fraction) {
             Fraction other = (Fraction) obj;
-            if (this.reduce().subtract(other.reduce()).numerator == 0) {
+            if (this.numerator * other.denominator == other.numerator * this.denominator) {
                 return true;
             }
             return false;
@@ -92,18 +124,12 @@ public class Fraction {
         return false;
     }
 
-    public void display() {
-        System.out.println(this.numerator + "/" + this.denominator);
-    }
-
+    /**
+     * For testing.
+     * @param args throw
+     */
     public static void main(String[] args) {
-//        Fraction fraction = new Fraction(3, 8);
-  //      Fraction result = fraction.divide(new Fraction(2, 0));
-
-    //    result.display();
-
-        int result = gcd(2, 0);
-        System.out.println(result);
+       
     }
 
 }

@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Solution {
-    public Solution() {
-
-    };
-
+    /**
+     * Calculate fibonacci of n.
+     * @param n throw
+     * @return
+     */
     public static int fibonacci(int n) {
         if (n == 0) {
             return 0;
@@ -15,6 +16,9 @@ public class Solution {
         }
     }
 
+    /**
+     * For testing.
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

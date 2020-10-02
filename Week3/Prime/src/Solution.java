@@ -5,7 +5,7 @@ public class Solution {
      * print all prime numbers from 0 to $n use Sieve of Eratosthenes algorithm
      * useful link https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
      * notice that print each number in a line
-     * @param n
+     * @param n throw
      */
     public static void primes(int n) {
         boolean[] primes = new boolean[n + 1];
@@ -29,6 +29,9 @@ public class Solution {
         }
     }
 
+    /**
+     * For testing.
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
